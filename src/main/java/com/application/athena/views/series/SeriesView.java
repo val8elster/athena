@@ -1,7 +1,7 @@
 package com.application.athena.views.series;
 
-import com.application.athena.data.SamplePerson;
-import com.application.athena.services.SamplePersonService;
+import com.application.athena.data.services.SeriesService;
+import com.application.athena.data.valueobjects.Series;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -44,7 +44,7 @@ public class SeriesView extends Composite<VerticalLayout> {
         TextField textField = new TextField();
         Button buttonPrimary2 = new Button();
         VerticalLayout layoutColumn3 = new VerticalLayout();
-        Grid minimalistGrid = new Grid(SamplePerson.class);
+        Grid minimalistGrid = new Grid(Series.class);
         getContent().setWidth("100%");
         getContent().getStyle().set("flex-grow", "1");
         layoutRow.addClassName(Gap.MEDIUM);
@@ -116,11 +116,9 @@ public class SeriesView extends Composite<VerticalLayout> {
     }
 
     private void setGridSampleData(Grid grid) {
-        grid.setItems(query -> samplePersonService.list(
-                PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)))
-                .stream());
+        grid.setItems(service.getAll());
     }
 
     @Autowired()
-    private SamplePersonService samplePersonService;
+    private SeriesService service;
 }
