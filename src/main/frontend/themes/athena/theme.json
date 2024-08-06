@@ -1,0 +1,9 @@
+{
+  "lumoImports" : [ "typography", "color", "spacing", "badge", "utility" ],
+  "assets" : {
+    "@fontsource/oxygen" : {
+      "*.css" : "@fontsource/oxygen",
+      "files/*" : "@fontsource/oxygen/files"
+    }
+  }
+}

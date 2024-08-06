@@ -1,0 +1,63 @@
+@import url('./main-layout.css');
+@import url('./views/books-view.css');
+@import url('./views/series-view.css');
+@import url('./views/add-view.css');
+@import url('./views/addform-view.css');
+@import url('./views/seriesadd-view.css');
+@import url('./views/viewbookoverlay-view.css');
+@import url('./views/viewseries-view.css');
+@import url('@fontsource/oxygen/index.css');    html {
+      --lumo-border-radius-s: 1px;
+      --lumo-border-radius-m: 2px;
+      --lumo-border-radius-l: 4px;
+      --lumo-size-xl: 3rem;
+      --lumo-size-l: 2.5rem;
+      --lumo-size-m: 2rem;
+      --lumo-size-s: 1.75rem;
+      --lumo-size-xs: 1.5rem;
+      --lumo-space-xl: 2.5rem;
+      --lumo-space-l: 1.75rem;
+      --lumo-space-m: 1.125rem;
+      --lumo-space-s: 0.75rem;
+      --lumo-space-xs: 0.375rem;
+      --lumo-base-color: #ebf3ff;
+      --lumo-primary-color: hsl(198, 52%, 29%);
+      --lumo-primary-color-50pct: hsla(198, 52%, 29%, 0.5);
+      --lumo-primary-color-10pct: hsla(198, 52%, 29%, 0.1);
+      --lumo-shade: hsl(214, 0%, 24%);
+      --lumo-shade-5pct: hsla(214, 0%, 24%, 0.05);
+      --lumo-shade-10pct: hsla(214, 0%, 24%, 0.1);
+      --lumo-shade-20pct: hsla(214, 0%, 24%, 0.2);
+      --lumo-shade-30pct: hsla(214, 0%, 24%, 0.3);
+      --lumo-shade-40pct: hsla(214, 0%, 24%, 0.4);
+      --lumo-shade-50pct: hsla(214, 0%, 24%, 0.5);
+      --lumo-shade-60pct: hsla(214, 0%, 24%, 0.6);
+      --lumo-shade-70pct: hsla(214, 0%, 24%, 0.7);
+      --lumo-shade-80pct: hsla(214, 0%, 24%, 0.8);
+      --lumo-shade-90pct: hsla(214, 0%, 24%, 0.9);
+      --lumo-body-text-color: hsla(214, 0%, 0%, 0.94);
+      --lumo-primary-text-color: hsl(198, 52%, 29%);
+--lumo-font-family: Oxygen;
+
+    }
+
+    [theme~="dark"] {
+      --lumo-base-color: hsl(214, 0%, 0%);
+      --lumo-primary-color: hsl(198, 37%, 62%);
+      --lumo-primary-color-50pct: hsla(198, 37%, 62%, 0.5);
+      --lumo-primary-color-10pct: hsla(198, 37%, 62%, 0.1);
+      --lumo-shade: hsl(214, 0%, 19%);
+      --lumo-shade-5pct: hsla(214, 0%, 19%, 0.05);
+      --lumo-shade-10pct: hsla(214, 0%, 19%, 0.1);
+      --lumo-shade-20pct: hsla(214, 0%, 19%, 0.2);
+      --lumo-shade-30pct: hsla(214, 0%, 19%, 0.3);
+      --lumo-shade-40pct: hsla(214, 0%, 19%, 0.4);
+      --lumo-shade-50pct: hsla(214, 0%, 19%, 0.5);
+      --lumo-shade-60pct: hsla(214, 0%, 19%, 0.6);
+      --lumo-shade-70pct: hsla(214, 0%, 19%, 0.7);
+      --lumo-shade-80pct: hsla(214, 0%, 19%, 0.8);
+      --lumo-shade-90pct: hsla(214, 0%, 19%, 0.9);
+      --lumo-body-text-color: hsla(214, 100%, 99%, 0.9);
+      --lumo-primary-text-color: hsl(198, 37%, 62%);
+
+    }
