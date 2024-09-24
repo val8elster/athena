@@ -1,6 +1,9 @@
 package com.application.athena.ui.views;
 
+import com.application.athena.services.TempLogic;
+import com.application.athena.valueobjects.Book;
 import com.vaadin.flow.component.Composite;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
@@ -19,42 +22,64 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 @Menu(icon = "line-awesome/svg/book-solid.svg", order = 2)
 @Route(value = "add")
 public class AddBook extends Composite<VerticalLayout> {
+    public TempLogic logic = new TempLogic();
 
     public AddBook() {
-        HorizontalLayout layoutRow = new HorizontalLayout();
-        H1 h1 = new H1();
-        VerticalLayout layoutColumn2 = new VerticalLayout();
+        HorizontalLayout titleLayout = new HorizontalLayout();
+        VerticalLayout contentLayout = new VerticalLayout();
+
         ProgressBar progressBar = new ProgressBar();
-        TextField textField = new TextField();
-        FormLayout formLayout2Col = new FormLayout();
-        Paragraph textSmall = new Paragraph();
-        Button buttonPrimary = new Button();
+        TextField isbnField = new TextField();
+        FormLayout isbnTextLayout = new FormLayout();
+        Paragraph isbnText = new Paragraph();
+        Button submitButton = new Button();
+
+        H1 title = new H1();
+        title.setText("Add Book");
+        title.setWidth("max-content");
+
+        progressBar.setValue(0.5);
+
+        isbnField.setLabel("isbn");
+        isbnField.setWidth("100%");
+
+        isbnTextLayout.add(isbnText);
+        isbnTextLayout.setWidth("100%");
+
+        isbnText.setText("Select text field and scan barcode or enter manually.");
+        isbnText.setWidth("100%");
+        isbnText.getStyle().set("font-size", "var(--lumo-font-size-xs)");
+
+        submitButton.setText("Check!");
+        submitButton.setWidth("100%");
+        submitButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+        submitButton.addClickListener(e -> {
+            Long isbn = Long.valueOf(isbnField.getValue());
+            //TODO
+            logic.currentBook = new Book(isbn);
+            UI.getCurrent().navigate("add/form");
+        });
+
+        //
+
+        titleLayout.addClassName(Gap.MEDIUM);
+        titleLayout.setWidth("100%");
+        titleLayout.setHeight("min-content");
+
+        titleLayout.add(title);
+
+        contentLayout.setWidth("100%");
+        contentLayout.getStyle().set("flex-grow", "1");
+
+        contentLayout.add(progressBar);
+        contentLayout.add(isbnField);
+        contentLayout.add(isbnTextLayout);
+        contentLayout.add(submitButton);
+
+        getContent().add(titleLayout);
+        getContent().add(contentLayout);
         getContent().setWidth("100%");
         getContent().getStyle().set("flex-grow", "1");
-        layoutRow.addClassName(Gap.MEDIUM);
-        layoutRow.setWidth("100%");
-        layoutRow.setHeight("min-content");
-        h1.setText("Add Book");
-        h1.setWidth("max-content");
-        layoutColumn2.setWidth("100%");
-        layoutColumn2.getStyle().set("flex-grow", "1");
-        progressBar.setValue(0.5);
-        textField.setLabel("ISBN");
-        textField.setWidth("100%");
-        formLayout2Col.setWidth("100%");
-        textSmall.setText("Select text field and scan barcode or enter manually.");
-        textSmall.setWidth("100%");
-        textSmall.getStyle().set("font-size", "var(--lumo-font-size-xs)");
-        buttonPrimary.setText("Check!");
-        buttonPrimary.setWidth("100%");
-        buttonPrimary.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        getContent().add(layoutRow);
-        layoutRow.add(h1);
-        getContent().add(layoutColumn2);
-        layoutColumn2.add(progressBar);
-        layoutColumn2.add(textField);
-        layoutColumn2.add(formLayout2Col);
-        formLayout2Col.add(textSmall);
-        layoutColumn2.add(buttonPrimary);
     }
 }
