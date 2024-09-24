@@ -1,6 +1,7 @@
 package com.application.athena.ui.views;
 
 import com.application.athena.ui.components.pricefield.PriceField;
+import com.application.athena.valueobjects.enums.Genre;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -32,111 +33,165 @@ import java.util.List;
 public class AddBookForm extends Composite<VerticalLayout> {
 
     public AddBookForm() {
-        HorizontalLayout layoutRow = new HorizontalLayout();
-        H1 h1 = new H1();
-        VerticalLayout layoutColumn2 = new VerticalLayout();
+        HorizontalLayout titleLayout = new HorizontalLayout();
+
+        H1 title = new H1();
+
+        VerticalLayout contentLayout = new VerticalLayout();
+
         ProgressBar progressBar = new ProgressBar();
-        TextField textField = new TextField();
+
+        TextField isbnField = new TextField();
+
+        TextField titleField = new TextField();
+
         Hr hr = new Hr();
-        TextField textField2 = new TextField();
-        FormLayout formLayout2Col = new FormLayout();
-        TextField textField3 = new TextField();
-        DatePicker datePicker = new DatePicker();
-        TextArea textArea = new TextArea();
+
+        FormLayout publishLayout = new FormLayout();
+
+        TextField authorField = new TextField();
+        DatePicker publishedDate = new DatePicker();
+        TextField publisherField = new TextField();
+
+        TextArea descriptionArea = new TextArea();
+
         Hr hr2 = new Hr();
-        Checkbox checkbox = new Checkbox();
-        FormLayout formLayout2Col2 = new FormLayout();
-        Select select = new Select();
-        NumberField numberField = new NumberField();
+
+        FormLayout seriesLayout = new FormLayout();
+
+        Checkbox isSeries = new Checkbox();
+        Select seriesSelect = new Select();
+        NumberField seriesVolume = new NumberField();
+
         Hr hr3 = new Hr();
-        CheckboxGroup checkboxGroup = new CheckboxGroup();
+
+        CheckboxGroup genreCheckboxes = new CheckboxGroup();
+
         Hr hr4 = new Hr();
-        FormLayout formLayout2Col3 = new FormLayout();
+
+        FormLayout buyLayout = new FormLayout();
+
         PriceField price = new PriceField();
-        DatePicker datePicker2 = new DatePicker();
+        DatePicker buyDate = new DatePicker();
+
         Hr hr5 = new Hr();
+
         Hr hr6 = new Hr();
-        Checkbox checkbox2 = new Checkbox();
-        Select select2 = new Select();
-        Button buttonPrimary = new Button();
-        Button buttonSecondary = new Button();
-        getContent().setWidth("100%");
-        getContent().getStyle().set("flex-grow", "1");
-        layoutRow.addClassName(Gap.MEDIUM);
-        layoutRow.setWidth("100%");
-        layoutRow.setHeight("min-content");
-        h1.setText("Add Book");
-        h1.setWidth("max-content");
-        layoutColumn2.setWidth("100%");
-        layoutColumn2.getStyle().set("flex-grow", "1");
+
+        Checkbox isRead = new Checkbox();
+        Select rating = new Select();
+
+        Button submitButton = new Button();
+        Button discardButton = new Button();
+
+        titleLayout.addClassName(Gap.MEDIUM);
+        titleLayout.setWidth("100%");
+        titleLayout.setHeight("min-content");
+        title.setText("Add Book");
+        title.setWidth("max-content");
+
         progressBar.setValue(0.5);
-        textField.setLabel("isbn");
-        textField.setWidth("100%");
-        textField2.setLabel("Title");
-        textField2.setWidth("100%");
-        formLayout2Col.setWidth("100%");
-        textField3.setLabel("Author");
-        textField3.setWidth("min-content");
-        datePicker.setLabel("Published");
-        datePicker.setWidth("min-content");
-        textArea.setLabel("Description");
-        textArea.setWidth("100%");
-        checkbox.setLabel("Part of Series?");
-        checkbox.setWidth("100%");
-        formLayout2Col2.setWidth("100%");
-        select.setLabel("Series");
-        select.setWidth("min-content");
-        setSelectSampleData(select);
-        numberField.setLabel("Volume");
-        numberField.setWidth("min-content");
-        checkboxGroup.setLabel("Genre");
-        checkboxGroup.setWidth("100%");
-        checkboxGroup.setItems("Order ID", "Product Name", "Customer", "Status");
-        checkboxGroup.addThemeVariants(CheckboxGroupVariant.LUMO_VERTICAL);
-        formLayout2Col3.setWidth("100%");
+
+        isbnField.setLabel("isbn");
+        isbnField.setWidth("100%");
+
+        titleField.setLabel("Title");
+        titleField.setWidth("100%");
+
+        authorField.setLabel("Author");
+        authorField.setWidth("min-content");
+
+        publishLayout.setWidth("100%");
+
+        publishedDate.setLabel("Published");
+        publishedDate.setWidth("min-content");
+
+        descriptionArea.setLabel("Description");
+        descriptionArea.setWidth("100%");
+
+        seriesLayout.setWidth("100%");
+
+        isSeries.setLabel("Part of Series?");
+        isSeries.setWidth("100%");
+
+        seriesSelect.setLabel("Series");
+        seriesSelect.setWidth("min-content");
+
+        seriesVolume.setLabel("Volume");
+        seriesVolume.setWidth("min-content");
+
+        genreCheckboxes.setLabel("Genre");
+        genreCheckboxes.setWidth("100%");
+        genreCheckboxes.setItems(Genre.values());
+        genreCheckboxes.addThemeVariants(CheckboxGroupVariant.LUMO_VERTICAL);
+
+        buyLayout.setWidth("100%");
+
         price.setLabel("Price");
         price.setWidth("min-content");
-        datePicker2.setLabel("Date bought");
-        datePicker2.setWidth("min-content");
-        checkbox2.setLabel("Read?");
-        checkbox2.setWidth("100%");
-        select2.setLabel("Rating");
-        select2.setWidth("100%");
-        setSelectSampleData(select2);
-        buttonPrimary.setText("Submit");
-        buttonPrimary.setWidth("100%");
-        buttonPrimary.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        buttonSecondary.setText("Discard");
-        layoutColumn2.setAlignSelf(FlexComponent.Alignment.START, buttonSecondary);
-        buttonSecondary.setWidth("100%");
-        getContent().add(layoutRow);
-        layoutRow.add(h1);
-        getContent().add(layoutColumn2);
-        layoutColumn2.add(progressBar);
-        layoutColumn2.add(textField);
-        layoutColumn2.add(hr);
-        layoutColumn2.add(textField2);
-        layoutColumn2.add(formLayout2Col);
-        formLayout2Col.add(textField3);
-        formLayout2Col.add(datePicker);
-        layoutColumn2.add(textArea);
-        layoutColumn2.add(hr2);
-        layoutColumn2.add(checkbox);
-        layoutColumn2.add(formLayout2Col2);
-        formLayout2Col2.add(select);
-        formLayout2Col2.add(numberField);
-        layoutColumn2.add(hr3);
-        layoutColumn2.add(checkboxGroup);
-        layoutColumn2.add(hr4);
-        layoutColumn2.add(formLayout2Col3);
-        formLayout2Col3.add(price);
-        formLayout2Col3.add(datePicker2);
-        formLayout2Col3.add(hr5);
-        formLayout2Col3.add(hr6);
-        formLayout2Col3.add(checkbox2);
-        layoutColumn2.add(select2);
-        layoutColumn2.add(buttonPrimary);
-        layoutColumn2.add(buttonSecondary);
+
+        buyDate.setLabel("Date bought");
+        buyDate.setWidth("min-content");
+
+        isRead.setLabel("Read?");
+        isRead.setWidth("100%");
+
+        rating.setLabel("Rating");
+        rating.setWidth("100%");
+
+        submitButton.setText("Submit");
+        submitButton.setWidth("100%");
+        submitButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+        discardButton.setText("Discard");
+        contentLayout.setAlignSelf(FlexComponent.Alignment.START, discardButton);
+        discardButton.setWidth("100%");
+
+        //
+
+        titleLayout.add(title);
+
+        contentLayout.setWidth("100%");
+        contentLayout.getStyle().set("flex-grow", "1");
+
+        contentLayout.add(progressBar);
+        contentLayout.add(isbnField);
+        contentLayout.add(titleField);
+        contentLayout.add(hr);
+        contentLayout.add(publishLayout);
+
+        publishLayout.add(authorField);
+        publishLayout.add(publishedDate);
+
+        contentLayout.add(descriptionArea);
+        contentLayout.add(hr2);
+        contentLayout.add(isSeries);
+        contentLayout.add(seriesLayout);
+
+        seriesLayout.add(seriesSelect);
+        seriesLayout.add(seriesVolume);
+
+        contentLayout.add(hr3);
+        contentLayout.add(genreCheckboxes);
+        contentLayout.add(hr4);
+        contentLayout.add(buyLayout);
+
+        buyLayout.add(price);
+        buyLayout.add(buyDate);
+        buyLayout.add(hr5);
+        buyLayout.add(hr6);
+        buyLayout.add(isRead);
+
+        contentLayout.add(rating);
+        contentLayout.add(submitButton);
+        contentLayout.add(discardButton);
+
+        //
+
+        getContent().setWidth("100%");
+        getContent().getStyle().set("flex-grow", "1");
+        getContent().add(titleLayout);
+        getContent().add(contentLayout);
     }
 
     record SampleItem(String value, String label, Boolean disabled) {
