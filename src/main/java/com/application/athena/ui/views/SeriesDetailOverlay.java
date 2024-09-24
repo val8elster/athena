@@ -1,7 +1,5 @@
 package com.application.athena.ui.views;
 
-import com.application.athena.data.SamplePerson;
-import com.application.athena.services.SamplePersonService;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.grid.Grid;
@@ -32,7 +30,7 @@ public class SeriesDetailOverlay extends Composite<VerticalLayout> {
         VerticalLayout layoutColumn2 = new VerticalLayout();
         TextField textField = new TextField();
         Hr hr = new Hr();
-        Grid minimalistGrid = new Grid(SamplePerson.class);
+        //Grid minimalistGrid = new Grid(SamplePerson.class);
         getContent().setWidth("100%");
         getContent().getStyle().set("flex-grow", "1");
         layoutRow.addClassName(Gap.MEDIUM);
@@ -44,25 +42,24 @@ public class SeriesDetailOverlay extends Composite<VerticalLayout> {
         layoutColumn2.getStyle().set("flex-grow", "1");
         textField.setLabel("Author");
         textField.setWidth("100%");
-        minimalistGrid.addThemeVariants(GridVariant.LUMO_COMPACT, GridVariant.LUMO_NO_BORDER,
-                GridVariant.LUMO_NO_ROW_BORDERS);
-        minimalistGrid.setWidth("100%");
-        minimalistGrid.getStyle().set("flex-grow", "0");
-        setGridSampleData(minimalistGrid);
+//        minimalistGrid.addThemeVariants(GridVariant.LUMO_COMPACT, GridVariant.LUMO_NO_BORDER,
+//                GridVariant.LUMO_NO_ROW_BORDERS);
+//        minimalistGrid.setWidth("100%");
+//        minimalistGrid.getStyle().set("flex-grow", "0");
+//        setGridSampleData(minimalistGrid);
         getContent().add(layoutRow);
         layoutRow.add(h1);
         getContent().add(layoutColumn2);
         layoutColumn2.add(textField);
         layoutColumn2.add(hr);
-        layoutColumn2.add(minimalistGrid);
+        //layoutColumn2.add(minimalistGrid);
     }
 
+    /*
     private void setGridSampleData(Grid grid) {
         grid.setItems(query -> samplePersonService.list(
                 PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)))
                 .stream());
     }
-
-    @Autowired()
-    private SamplePersonService samplePersonService;
+    */
 }

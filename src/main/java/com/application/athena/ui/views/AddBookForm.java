@@ -70,7 +70,7 @@ public class AddBookForm extends Composite<VerticalLayout> {
         layoutColumn2.setWidth("100%");
         layoutColumn2.getStyle().set("flex-grow", "1");
         progressBar.setValue(0.5);
-        textField.setLabel("ISBN");
+        textField.setLabel("isbn");
         textField.setWidth("100%");
         textField2.setLabel("Title");
         textField2.setWidth("100%");
