@@ -1,7 +1,7 @@
 package com.application.athena.views.books;
 
-import com.application.athena.data.services.BookService;
-import com.application.athena.data.valueobjects.Book;
+import com.application.athena.data.SamplePerson;
+import com.application.athena.services.SamplePersonService;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -32,8 +32,6 @@ import org.springframework.data.domain.PageRequest;
 @RouteAlias(value = "")
 @Uses(Icon.class)
 public class BooksView extends Composite<VerticalLayout> {
-    @Autowired
-    private BookService service;
 
     public BooksView() {
         HorizontalLayout layoutRow = new HorizontalLayout();
@@ -47,7 +45,7 @@ public class BooksView extends Composite<VerticalLayout> {
         TextField textField = new TextField();
         Button buttonPrimary2 = new Button();
         VerticalLayout layoutColumn3 = new VerticalLayout();
-        Grid minimalistGrid = new Grid(Book.class);
+        Grid minimalistGrid = new Grid(SamplePerson.class);
         getContent().setWidth("100%");
         getContent().getStyle().set("flex-grow", "1");
         layoutRow.addClassName(Gap.MEDIUM);
@@ -110,6 +108,11 @@ public class BooksView extends Composite<VerticalLayout> {
     }
 
     private void setGridSampleData(Grid grid) {
-        grid.setItems(service.getAll());
+        grid.setItems(query -> samplePersonService.list(
+                PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)))
+                .stream());
     }
+
+    @Autowired()
+    private SamplePersonService samplePersonService;
 }
