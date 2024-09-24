@@ -1,4 +1,4 @@
-package com.application.athena.views.viewseries;
+package com.application.athena.ui.views;
 
 import com.application.athena.data.SamplePerson;
 import com.application.athena.services.SamplePersonService;
@@ -24,9 +24,9 @@ import org.springframework.data.domain.PageRequest;
 @Menu(icon = "line-awesome/svg/book-open-solid.svg", order = 6)
 @Route(value = "view-series")
 @Uses(Icon.class)
-public class ViewseriesView extends Composite<VerticalLayout> {
+public class SeriesDetailOverlay extends Composite<VerticalLayout> {
 
-    public ViewseriesView() {
+    public SeriesDetailOverlay() {
         HorizontalLayout layoutRow = new HorizontalLayout();
         H1 h1 = new H1();
         VerticalLayout layoutColumn2 = new VerticalLayout();

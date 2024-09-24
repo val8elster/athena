@@ -1,4 +1,4 @@
-package com.application.athena.views.viewbookoverlay;
+package com.application.athena.ui.views;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.html.H1;
@@ -13,9 +13,9 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 @PageTitle("view book overlay")
 @Menu(icon = "line-awesome/svg/book-open-solid.svg", order = 5)
 @Route(value = "book")
-public class ViewbookoverlayView extends Composite<VerticalLayout> {
+public class BookDetailOverlay extends Composite<VerticalLayout> {
 
-    public ViewbookoverlayView() {
+    public BookDetailOverlay() {
         HorizontalLayout layoutRow = new HorizontalLayout();
         H1 h1 = new H1();
         VerticalLayout layoutColumn2 = new VerticalLayout();

@@ -1,6 +1,6 @@
-package com.application.athena.views.addform;
+package com.application.athena.ui.views;
 
-import com.application.athena.components.pricefield.PriceField;
+import com.application.athena.ui.components.pricefield.PriceField;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -29,9 +29,9 @@ import java.util.List;
 @PageTitle("Add/form")
 @Menu(icon = "line-awesome/svg/book-solid.svg", order = 3)
 @Route(value = "add/form")
-public class AddformView extends Composite<VerticalLayout> {
+public class AddBookForm extends Composite<VerticalLayout> {
 
-    public AddformView() {
+    public AddBookForm() {
         HorizontalLayout layoutRow = new HorizontalLayout();
         H1 h1 = new H1();
         VerticalLayout layoutColumn2 = new VerticalLayout();

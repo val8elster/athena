@@ -1,4 +1,4 @@
-package com.application.athena.views.books;
+package com.application.athena.ui.views;
 
 import com.application.athena.data.SamplePerson;
 import com.application.athena.services.SamplePersonService;

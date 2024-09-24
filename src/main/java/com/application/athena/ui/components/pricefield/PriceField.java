@@ -1,4 +1,4 @@
-package com.application.athena.components.pricefield;
+package com.application.athena.ui.components.pricefield;
 
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.customfield.CustomField;
