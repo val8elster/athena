@@ -1,6 +1,6 @@
 package com.application.athena.ui.views;
 
-import com.application.athena.services.TempLogic;
+import com.application.athena.services.Logic;
 import com.application.athena.valueobjects.Book;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.UI;
@@ -22,7 +22,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 @Menu(icon = "line-awesome/svg/book-solid.svg", order = 2)
 @Route(value = "add")
 public class AddBook extends Composite<VerticalLayout> {
-    public TempLogic logic = new TempLogic();
+    private Logic logic = Logic.getInstance();
 
     public AddBook() {
         HorizontalLayout titleLayout = new HorizontalLayout();
@@ -57,7 +57,7 @@ public class AddBook extends Composite<VerticalLayout> {
         submitButton.addClickListener(e -> {
             Long isbn = Long.valueOf(isbnField.getValue());
             //TODO
-            logic.currentBook = new Book(isbn);
+            logic.getTempLogic().currentBook = new Book(isbn);
             UI.getCurrent().navigate("add/form");
         });
 

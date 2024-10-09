@@ -1,6 +1,6 @@
 package com.application.athena.ui.views;
 
-import com.application.athena.ui.components.pricefield.PriceField;
+import com.application.athena.services.Logic;
 import com.application.athena.valueobjects.enums.Genre;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
@@ -10,6 +10,7 @@ import com.vaadin.flow.component.checkbox.CheckboxGroup;
 import com.vaadin.flow.component.checkbox.CheckboxGroupVariant;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -31,6 +32,7 @@ import java.util.List;
 @Menu(icon = "line-awesome/svg/book-solid.svg", order = 3)
 @Route(value = "add/form")
 public class AddBookForm extends Composite<VerticalLayout> {
+    private Logic logic = Logic.getInstance();
 
     public AddBookForm() {
         HorizontalLayout titleLayout = new HorizontalLayout();
@@ -71,7 +73,11 @@ public class AddBookForm extends Composite<VerticalLayout> {
 
         FormLayout buyLayout = new FormLayout();
 
-        PriceField price = new PriceField();
+        NumberField price = new NumberField();
+        Div euroSuffix = new Div();
+        euroSuffix.setText("€");
+        price.setSuffixComponent(euroSuffix);        
+
         DatePicker buyDate = new DatePicker();
 
         Hr hr5 = new Hr();
@@ -99,6 +105,9 @@ public class AddBookForm extends Composite<VerticalLayout> {
         titleField.setWidth("100%");
 
         authorField.setLabel("Author");
+        authorField.setWidth("100%");
+
+        publisherField.setLabel("Publisher");//TODO
         authorField.setWidth("min-content");
 
         publishLayout.setWidth("100%");
@@ -158,9 +167,10 @@ public class AddBookForm extends Composite<VerticalLayout> {
         contentLayout.add(isbnField);
         contentLayout.add(titleField);
         contentLayout.add(hr);
+        contentLayout.add(authorField);
         contentLayout.add(publishLayout);
 
-        publishLayout.add(authorField);
+        publishLayout.add(publisherField);
         publishLayout.add(publishedDate);
 
         contentLayout.add(descriptionArea);
@@ -192,6 +202,11 @@ public class AddBookForm extends Composite<VerticalLayout> {
         getContent().getStyle().set("flex-grow", "1");
         getContent().add(titleLayout);
         getContent().add(contentLayout);
+
+        //
+
+        isbnField.setValue(String.valueOf(logic.getTempLogic().currentBook.isbn));
+        isbnField.setEnabled(false);
     }
 
     record SampleItem(String value, String label, Boolean disabled) {

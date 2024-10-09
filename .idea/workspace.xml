@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="some structural changes to make vaadin project usable">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/enums/CoverType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/enums/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="sorted through vaadin mess">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/services/Logic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/BooksView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/BooksView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/SeriesDetailOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/SeriesDetailOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/SeriesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/SeriesView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,36 +54,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.Application.executor": "Run",
-    "Spring Boot.athena.executor": "Debug",
-    "git-widget-placeholder": "1-add-books",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/valvo/Documents/athena",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3632184",
-    "settings.editor.selected.configurable": "reactor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.athena.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;1-add-books&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/valvo/Documents/athena&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3632184&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reactor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -136,7 +125,10 @@
       <workItem from="1724674787427" duration="4858000" />
       <workItem from="1727182107803" duration="4721000" />
       <workItem from="1727196071746" duration="1037000" />
-      <workItem from="1727197118628" duration="2838000" />
+      <workItem from="1727197118628" duration="4970000" />
+      <workItem from="1727360969715" duration="796000" />
+      <workItem from="1727971667999" duration="1318000" />
+      <workItem from="1728472680054" duration="658000" />
     </task>
     <task id="LOCAL-00001" summary="transition from add isbn to add form, also defined singleton currently holding bookservice for isbn transition.">
       <option name="closed" value="true" />
@@ -154,7 +146,71 @@
       <option name="project" value="LOCAL" />
       <updated>1723290929302</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="removed vaadin logic">
+      <option name="closed" value="true" />
+      <created>1727200429818</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727200429818</updated>
+    </task>
+    <task id="LOCAL-00004" summary="temporary logic class until persistence is established">
+      <option name="closed" value="true" />
+      <created>1727200455661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727200455661</updated>
+    </task>
+    <task id="LOCAL-00005" summary="init book class + new enums for covertype and language">
+      <option name="closed" value="true" />
+      <created>1727200484016</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727200484016</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added lombok and changed database login to actual values">
+      <option name="closed" value="true" />
+      <created>1727200515891</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727200515891</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed addbook view to work with the current architecture">
+      <option name="closed" value="true" />
+      <created>1727200542367</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727200542367</updated>
+    </task>
+    <task id="LOCAL-00008" summary="structural changes">
+      <option name="closed" value="true" />
+      <created>1727200584904</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727200584904</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added genre enum">
+      <option name="closed" value="true" />
+      <created>1727201721707</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727201721707</updated>
+    </task>
+    <task id="LOCAL-00010" summary="sorted through vaadin mess">
+      <option name="closed" value="true" />
+      <created>1727201733841</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727201733841</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,18 +219,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="transition from add isbn to add form, also defined singleton currently holding bookservice for isbn transition." />
     <MESSAGE value="some bugfixing for the adding forms, there was a problem with the singleton." />
-    <option name="LAST_COMMIT_MESSAGE" value="some bugfixing for the adding forms, there was a problem with the singleton." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBook.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="removed vaadin logic" />
+    <MESSAGE value="temporary logic class until persistence is established" />
+    <MESSAGE value="init book class + new enums for covertype and language" />
+    <MESSAGE value="added lombok and changed database login to actual values" />
+    <MESSAGE value="fixed addbook view to work with the current architecture" />
+    <MESSAGE value="structural changes" />
+    <MESSAGE value="added genre enum" />
+    <MESSAGE value="sorted through vaadin mess" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorted through vaadin mess" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
