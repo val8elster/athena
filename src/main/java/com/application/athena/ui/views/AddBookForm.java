@@ -107,8 +107,8 @@ public class AddBookForm extends Composite<VerticalLayout> {
         authorField.setLabel("Author");
         authorField.setWidth("100%");
 
-        publisherField.setLabel("Publisher");//TODO
-        authorField.setWidth("min-content");
+        publisherField.setLabel("Publisher");
+        publisherField.setWidth("min-content");
 
         publishLayout.setWidth("100%");
 
@@ -123,11 +123,26 @@ public class AddBookForm extends Composite<VerticalLayout> {
         isSeries.setLabel("Part of Series?");
         isSeries.setWidth("100%");
 
+        isSeries.addClickListener(e -> {
+            if(isSeries.getValue()) {
+                seriesSelect.setEnabled(true);
+                seriesVolume.setEnabled(true);
+            }
+            else {
+                seriesSelect.setEnabled(false);
+                seriesSelect.clear();
+                seriesVolume.setEnabled(false);
+                seriesVolume.clear();
+            }
+        });
+
         seriesSelect.setLabel("Series");
         seriesSelect.setWidth("min-content");
+        seriesSelect.setEnabled(false);
 
         seriesVolume.setLabel("Volume");
         seriesVolume.setWidth("min-content");
+        seriesVolume.setEnabled(false);
 
         genreCheckboxes.setLabel("Genre");
         genreCheckboxes.setWidth("100%");
@@ -145,8 +160,20 @@ public class AddBookForm extends Composite<VerticalLayout> {
         isRead.setLabel("Read?");
         isRead.setWidth("100%");
 
+        isRead.addClickListener(e -> {
+            if(isRead.getValue()) {
+                rating.setEnabled(true);
+            }
+            else {
+                rating.setEnabled(false);
+                rating.clear();
+            }
+        });
+
         rating.setLabel("Rating");
         rating.setWidth("100%");
+        setRatingSelectData(rating);
+        rating.setEnabled(false);
 
         submitButton.setText("Submit");
         submitButton.setWidth("100%");
@@ -155,6 +182,7 @@ public class AddBookForm extends Composite<VerticalLayout> {
         discardButton.setText("Discard");
         contentLayout.setAlignSelf(FlexComponent.Alignment.START, discardButton);
         discardButton.setWidth("100%");
+        //TODO discard ?
 
         //
 
@@ -209,17 +237,17 @@ public class AddBookForm extends Composite<VerticalLayout> {
         isbnField.setEnabled(false);
     }
 
-    record SampleItem(String value, String label, Boolean disabled) {
+    record SampleItem(int value, String label) {
     }
 
-    private void setSelectSampleData(Select select) {
+    private void setRatingSelectData(Select select) {
         List<SampleItem> sampleItems = new ArrayList<>();
-        sampleItems.add(new SampleItem("first", "First", null));
-        sampleItems.add(new SampleItem("second", "Second", null));
-        sampleItems.add(new SampleItem("third", "Third", Boolean.TRUE));
-        sampleItems.add(new SampleItem("fourth", "Fourth", null));
+        sampleItems.add(new SampleItem(1, "✨"));
+        sampleItems.add(new SampleItem(2, "✨✨"));
+        sampleItems.add(new SampleItem(3, "✨✨✨"));
+        sampleItems.add(new SampleItem(4, "✨✨✨✨"));
+        sampleItems.add(new SampleItem(5, "✨✨✨✨✨"));
         select.setItems(sampleItems);
         select.setItemLabelGenerator(item -> ((SampleItem) item).label());
-        select.setItemEnabledProvider(item -> !Boolean.TRUE.equals(((SampleItem) item).disabled()));
     }
 }

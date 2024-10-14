@@ -56,7 +56,6 @@ public class AddBook extends Composite<VerticalLayout> {
 
         submitButton.addClickListener(e -> {
             Long isbn = Long.valueOf(isbnField.getValue());
-            //TODO
             logic.getTempLogic().currentBook = new Book(isbn);
             UI.getCurrent().navigate("add/form");
         });

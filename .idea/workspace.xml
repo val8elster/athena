@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="sorted through vaadin mess">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/services/Logic.java" afterDir="false" />
+    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="some improvements to add page, sorted through fields and added a publisher">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +125,8 @@
       <workItem from="1727197118628" duration="4970000" />
       <workItem from="1727360969715" duration="796000" />
       <workItem from="1727971667999" duration="1318000" />
-      <workItem from="1728472680054" duration="658000" />
+      <workItem from="1728472680054" duration="960000" />
+      <workItem from="1728904237902" duration="1007000" />
     </task>
     <task id="LOCAL-00001" summary="transition from add isbn to add form, also defined singleton currently holding bookservice for isbn transition.">
       <option name="closed" value="true" />
@@ -210,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727201733841</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="some improvements to add page, sorted through fields and added a publisher">
+      <option name="closed" value="true" />
+      <created>1728473679774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728473679774</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +233,8 @@
     <MESSAGE value="structural changes" />
     <MESSAGE value="added genre enum" />
     <MESSAGE value="sorted through vaadin mess" />
-    <option name="LAST_COMMIT_MESSAGE" value="sorted through vaadin mess" />
+    <MESSAGE value="some improvements to add page, sorted through fields and added a publisher" />
+    <option name="LAST_COMMIT_MESSAGE" value="some improvements to add page, sorted through fields and added a publisher" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
