@@ -1,7 +1,11 @@
 package com.application.athena.ui.views;
 
 import com.application.athena.services.Logic;
+import com.application.athena.valueobjects.Book;
+import com.application.athena.valueobjects.enums.Colour;
+import com.application.athena.valueobjects.enums.CoverType;
 import com.application.athena.valueobjects.enums.Genre;
+import com.application.athena.valueobjects.enums.Language;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -17,6 +21,7 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.progressbar.ProgressBar;
+import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextArea;
@@ -26,6 +31,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @PageTitle("Add/form")
@@ -57,6 +63,13 @@ public class AddBookForm extends Composite<VerticalLayout> {
 
         TextArea descriptionArea = new TextArea();
 
+        Hr hr1 = new Hr();
+
+        FormLayout layout = new FormLayout();
+
+        Select languageSelect = new Select();
+        NumberField pagesField = new NumberField();
+
         Hr hr2 = new Hr();
 
         FormLayout seriesLayout = new FormLayout();
@@ -70,6 +83,13 @@ public class AddBookForm extends Composite<VerticalLayout> {
         CheckboxGroup genreCheckboxes = new CheckboxGroup();
 
         Hr hr4 = new Hr();
+
+        FormLayout coverLayout = new FormLayout();
+
+        RadioButtonGroup<String> coverType = new RadioButtonGroup<>();
+        Select colourSelect = new Select();
+
+        Hr hr7 = new Hr();
 
         FormLayout buyLayout = new FormLayout();
 
@@ -118,6 +138,14 @@ public class AddBookForm extends Composite<VerticalLayout> {
         descriptionArea.setLabel("Description");
         descriptionArea.setWidth("100%");
 
+        languageSelect.setLabel("Language");
+        languageSelect.setWidth("min-content");
+        languageSelect.setItems(Language.values());
+
+        pagesField.setLabel("Pages");
+        pagesField.setWidth("min-content");
+        pagesField.setValue(0d);
+
         seriesLayout.setWidth("100%");
 
         isSeries.setLabel("Part of Series?");
@@ -147,12 +175,22 @@ public class AddBookForm extends Composite<VerticalLayout> {
         genreCheckboxes.setLabel("Genre");
         genreCheckboxes.setWidth("100%");
         genreCheckboxes.setItems(Genre.values());
-        genreCheckboxes.addThemeVariants(CheckboxGroupVariant.LUMO_VERTICAL);
+
+        coverLayout.setWidth("100%");
+
+        coverType.setLabel("Cover Type");
+        coverType.setItems("SOFTCOVER", "HARDCOVER");
+        coverType.setWidth("min-content");
+
+        colourSelect.setLabel("Cover Colour");
+        colourSelect.setItems(Colour.values());
+        colourSelect.setWidth("min-content");
 
         buyLayout.setWidth("100%");
 
         price.setLabel("Price");
         price.setWidth("min-content");
+        price.setValue(0.00);
 
         buyDate.setLabel("Date bought");
         buyDate.setWidth("min-content");
@@ -202,6 +240,13 @@ public class AddBookForm extends Composite<VerticalLayout> {
         publishLayout.add(publishedDate);
 
         contentLayout.add(descriptionArea);
+
+        contentLayout.add(hr1);
+        contentLayout.add(layout);
+
+        layout.add(languageSelect);
+        layout.add(pagesField);
+
         contentLayout.add(hr2);
         contentLayout.add(isSeries);
         contentLayout.add(seriesLayout);
@@ -211,6 +256,13 @@ public class AddBookForm extends Composite<VerticalLayout> {
 
         contentLayout.add(hr3);
         contentLayout.add(genreCheckboxes);
+
+        contentLayout.add(hr7);
+        contentLayout.add(coverLayout);
+
+        coverLayout.add(coverType);
+        coverLayout.add(colourSelect);
+
         contentLayout.add(hr4);
         contentLayout.add(buyLayout);
 
@@ -235,6 +287,33 @@ public class AddBookForm extends Composite<VerticalLayout> {
 
         isbnField.setValue(String.valueOf(logic.getTempLogic().currentBook.isbn));
         isbnField.setEnabled(false);
+
+        //
+
+        submitButton.addClickListener(e -> {
+            Book b = logic.getTempLogic().currentBook;
+
+            b.setTitle(titleField.getValue());
+            b.setAuthor(authorField.getValue());
+            b.setPublisher(publisherField.getValue());
+            b.setPublishedYear(publishedDate.getValue().getYear());
+            b.setDescription(descriptionArea.getValue());
+            b.setLanguage((Language) languageSelect.getValue());
+            List<Genre> genres = new ArrayList<>();
+            for (Object g : genreCheckboxes.getSelectedItems()) {
+                genres.add((Genre) g);
+            }
+            b.setGenres(genres);
+            b.setCover(CoverType.valueOf(coverType.getValue()));
+            b.setCoverColour((Colour) colourSelect.getValue());
+            b.setPages(pagesField.getValue().intValue());
+            b.setPrice(price.getValue().floatValue());
+            b.setBuyDate(buyDate.getValue());
+            b.setRead(isRead.getValue());
+            if(isRead.getValue()){
+                b.setRating(((SampleItem) rating.getValue()).value);
+            }
+        });
     }
 
     record SampleItem(int value, String label) {
