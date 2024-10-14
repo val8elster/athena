@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="more layouting, now clears and disables fields as needed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/enums/Colour.java" afterDir="false" />
+    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="books are now added to booklist in templogic">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Series.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddSeries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddSeries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,12 +18,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="1-add-books" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -67,7 +72,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.Application.executor": "Run",
     "Spring Boot.athena.executor": "Run",
-    "git-widget-placeholder": "1-add-books",
+    "git-widget-placeholder": "3-add-series",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/valvo/Documents/athena",
@@ -128,7 +133,7 @@
       <workItem from="1727360969715" duration="796000" />
       <workItem from="1727971667999" duration="1318000" />
       <workItem from="1728472680054" duration="960000" />
-      <workItem from="1728904237902" duration="5084000" />
+      <workItem from="1728904237902" duration="6685000" />
     </task>
     <task id="LOCAL-00001" summary="transition from add isbn to add form, also defined singleton currently holding bookservice for isbn transition.">
       <option name="closed" value="true" />
@@ -226,7 +231,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728905512203</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="books are now created">
+      <option name="closed" value="true" />
+      <created>1728910263555</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728910263555</updated>
+    </task>
+    <task id="LOCAL-00014" summary="books are now added to booklist in templogic">
+      <option name="closed" value="true" />
+      <created>1728910335019</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728910335019</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +266,9 @@
     <MESSAGE value="sorted through vaadin mess" />
     <MESSAGE value="some improvements to add page, sorted through fields and added a publisher" />
     <MESSAGE value="more layouting, now clears and disables fields as needed" />
-    <option name="LAST_COMMIT_MESSAGE" value="more layouting, now clears and disables fields as needed" />
+    <MESSAGE value="books are now created" />
+    <MESSAGE value="books are now added to booklist in templogic" />
+    <option name="LAST_COMMIT_MESSAGE" value="books are now added to booklist in templogic" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
