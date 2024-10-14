@@ -1,7 +1,5 @@
 package com.application.athena.ui.views;
 
-import com.application.athena.data.SamplePerson;
-import com.application.athena.services.SamplePersonService;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -45,7 +43,7 @@ public class BooksView extends Composite<VerticalLayout> {
         TextField textField = new TextField();
         Button buttonPrimary2 = new Button();
         VerticalLayout layoutColumn3 = new VerticalLayout();
-        Grid minimalistGrid = new Grid(SamplePerson.class);
+        //Grid minimalistGrid = new Grid(SamplePerson.class);
         getContent().setWidth("100%");
         getContent().getStyle().set("flex-grow", "1");
         layoutRow.addClassName(Gap.MEDIUM);
@@ -74,11 +72,11 @@ public class BooksView extends Composite<VerticalLayout> {
         buttonPrimary2.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         layoutColumn3.setWidth("100%");
         layoutColumn3.getStyle().set("flex-grow", "1");
-        minimalistGrid.addThemeVariants(GridVariant.LUMO_COMPACT, GridVariant.LUMO_NO_BORDER,
-                GridVariant.LUMO_NO_ROW_BORDERS);
-        minimalistGrid.setWidth("100%");
-        minimalistGrid.getStyle().set("flex-grow", "0");
-        setGridSampleData(minimalistGrid);
+        //minimalistGrid.addThemeVariants(GridVariant.LUMO_COMPACT, GridVariant.LUMO_NO_BORDER,
+        //        GridVariant.LUMO_NO_ROW_BORDERS);
+        //minimalistGrid.setWidth("100%");
+        //minimalistGrid.getStyle().set("flex-grow", "0");
+        //setGridSampleData(minimalistGrid);
         getContent().add(layoutRow);
         layoutRow.add(h1);
         getContent().add(layoutRow2);
@@ -90,7 +88,7 @@ public class BooksView extends Composite<VerticalLayout> {
         layoutColumn2.add(textField);
         layoutColumn2.add(buttonPrimary2);
         layoutRow2.add(layoutColumn3);
-        layoutColumn3.add(minimalistGrid);
+        //layoutColumn3.add(minimalistGrid);
     }
 
     record SampleItem(String value, String label, Boolean disabled) {
@@ -107,12 +105,11 @@ public class BooksView extends Composite<VerticalLayout> {
         select.setItemEnabledProvider(item -> !Boolean.TRUE.equals(((SampleItem) item).disabled()));
     }
 
+   /*
     private void setGridSampleData(Grid grid) {
         grid.setItems(query -> samplePersonService.list(
                 PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)))
                 .stream());
     }
-
-    @Autowired()
-    private SamplePersonService samplePersonService;
+    */
 }
