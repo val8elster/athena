@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="books are now added to booklist in templogic">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Series.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddSeries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddSeries.java" afterDir="false" />
-    </list>
+    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="series can be added now" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +128,7 @@
       <workItem from="1727360969715" duration="796000" />
       <workItem from="1727971667999" duration="1318000" />
       <workItem from="1728472680054" duration="960000" />
-      <workItem from="1728904237902" duration="6685000" />
+      <workItem from="1728904237902" duration="7263000" />
     </task>
     <task id="LOCAL-00001" summary="transition from add isbn to add form, also defined singleton currently holding bookservice for isbn transition.">
       <option name="closed" value="true" />
@@ -247,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728910335019</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="series can be added now">
+      <option name="closed" value="true" />
+      <created>1728911803154</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728911803154</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +271,8 @@
     <MESSAGE value="more layouting, now clears and disables fields as needed" />
     <MESSAGE value="books are now created" />
     <MESSAGE value="books are now added to booklist in templogic" />
-    <option name="LAST_COMMIT_MESSAGE" value="books are now added to booklist in templogic" />
+    <MESSAGE value="series can be added now" />
+    <option name="LAST_COMMIT_MESSAGE" value="series can be added now" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
