@@ -313,6 +313,7 @@ public class AddBookForm extends Composite<VerticalLayout> {
             if(isRead.getValue()){
                 b.setRating(((SampleItem) rating.getValue()).value);
             }
+            logic.getTempLogic().bookList.add(b);
         });
     }
 
