@@ -1,28 +1,29 @@
 package com.application.athena.ui.views;
 
+import com.application.athena.services.Logic;
+import com.application.athena.valueobjects.Book;
+import com.application.athena.valueobjects.enums.Genre;
 import com.vaadin.flow.component.Composite;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
+import com.vaadin.flow.component.grid.dataview.GridListDataView;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
-import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 
 @PageTitle("books")
 @Menu(icon = "line-awesome/svg/book-dead-solid.svg", order = 0)
@@ -30,86 +31,141 @@ import org.springframework.data.domain.PageRequest;
 @RouteAlias(value = "")
 @Uses(Icon.class)
 public class BooksView extends Composite<VerticalLayout> {
-
+    private Logic logic = Logic.getInstance();
     public BooksView() {
         HorizontalLayout layoutRow = new HorizontalLayout();
         H1 h1 = new H1();
         HorizontalLayout layoutRow2 = new HorizontalLayout();
         VerticalLayout layoutColumn2 = new VerticalLayout();
-        Select select = new Select();
-        Button buttonPrimary = new Button();
         Hr hr = new Hr();
-        Select select2 = new Select();
-        TextField textField = new TextField();
-        Button buttonPrimary2 = new Button();
+
+        Select searchSelect = new Select();
+        TextField searchField = new TextField();
+
         VerticalLayout layoutColumn3 = new VerticalLayout();
-        //Grid minimalistGrid = new Grid(SamplePerson.class);
-        getContent().setWidth("100%");
-        getContent().getStyle().set("flex-grow", "1");
+
+        Grid<Book> minimalistGrid = new Grid<>(Book.class, false);
+        GridListDataView<Book> dataView = minimalistGrid.setItems(logic.getTempLogic().bookList);
+
+        h1.setText("Books Overview");
+        h1.setWidth("max-content");
+
+        searchSelect.setLabel("Search By...");
+        searchSelect.setWidth("min-content");
+        setSearchSelectData(searchSelect);
+
+        searchField.setLabel("Keyword");
+        searchField.setWidth("min-content");
+        searchField.setPrefixComponent(new Icon(VaadinIcon.SEARCH));
+        searchField.setValueChangeMode(ValueChangeMode.EAGER);
+        searchField.addValueChangeListener(e -> dataView.refreshAll());
+
+        minimalistGrid.addColumn(Book::getIsbn).setHeader("ISBN");
+        minimalistGrid.addColumn(Book::getTitle).setHeader("Title").setSortable(true);
+        minimalistGrid.addColumn(Book::getAuthor).setHeader("Author").setSortable(true);
+        minimalistGrid.addColumn(Book::getRating).setHeader("Rating").setSortable(true);
+
+        minimalistGrid.addThemeVariants(GridVariant.LUMO_COMPACT, GridVariant.LUMO_NO_BORDER,
+                GridVariant.LUMO_NO_ROW_BORDERS);
+        minimalistGrid.setWidth("100%");
+        minimalistGrid.getStyle().set("flex-grow", "0");
+
         layoutRow.addClassName(Gap.MEDIUM);
         layoutRow.setWidth("100%");
         layoutRow.setHeight("min-content");
-        h1.setText("Books Overview");
-        h1.setWidth("max-content");
+        layoutRow.add(h1);
+
+        layoutColumn2.setWidth("min-content");
+        layoutColumn2.getStyle().set("flex-grow", "1");
+        layoutColumn2.add(hr);
+        layoutColumn2.add(searchSelect);
+        layoutColumn2.add(searchField);
+
         layoutRow2.addClassName(Gap.MEDIUM);
         layoutRow2.setWidth("100%");
         layoutRow2.getStyle().set("flex-grow", "1");
-        layoutColumn2.setWidth("min-content");
-        layoutColumn2.getStyle().set("flex-grow", "1");
-        select.setLabel("Sort By...");
-        select.setWidth("100%");
-        setSelectSampleData(select);
-        buttonPrimary.setText("Sort!");
-        buttonPrimary.setWidth("100%");
-        buttonPrimary.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        select2.setLabel("Search By...");
-        select2.setWidth("min-content");
-        setSelectSampleData(select2);
-        textField.setLabel("Keyword");
-        textField.setWidth("min-content");
-        buttonPrimary2.setText("Search!");
-        buttonPrimary2.setWidth("100%");
-        buttonPrimary2.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        layoutRow2.add(layoutColumn2);
+        layoutRow2.add(layoutColumn3);
+
         layoutColumn3.setWidth("100%");
         layoutColumn3.getStyle().set("flex-grow", "1");
-        //minimalistGrid.addThemeVariants(GridVariant.LUMO_COMPACT, GridVariant.LUMO_NO_BORDER,
-        //        GridVariant.LUMO_NO_ROW_BORDERS);
-        //minimalistGrid.setWidth("100%");
-        //minimalistGrid.getStyle().set("flex-grow", "0");
-        //setGridSampleData(minimalistGrid);
+        layoutColumn3.add(minimalistGrid);
+
+        getContent().setWidth("100%");
+        getContent().getStyle().set("flex-grow", "1");
         getContent().add(layoutRow);
-        layoutRow.add(h1);
         getContent().add(layoutRow2);
-        layoutRow2.add(layoutColumn2);
-        layoutColumn2.add(select);
-        layoutColumn2.add(buttonPrimary);
-        layoutColumn2.add(hr);
-        layoutColumn2.add(select2);
-        layoutColumn2.add(textField);
-        layoutColumn2.add(buttonPrimary2);
-        layoutRow2.add(layoutColumn3);
-        //layoutColumn3.add(minimalistGrid);
+
+        //
+
+        dataView.addFilter(book -> {
+            String searchTerm = searchField.getValue().trim();
+
+            if (searchTerm.isEmpty())
+                return true;
+
+            String searchCrit = ((SampleItem) searchSelect.getValue()).value;
+
+            boolean match = false;
+            switch(searchCrit){
+                case "author": {
+                    match = matchesTerm(book.getAuthor(), searchTerm);
+                    break;
+                }
+                case "title": {
+                    match = matchesTerm(book.getTitle(), searchTerm);
+                    break;
+                }
+                case "genre": {
+                    match = genreMatches(book.getGenres(), searchTerm);
+                    break;
+                }
+                case "language": {
+                    match = matchesTerm(book.getLanguage().toString(), searchTerm);
+                    break;
+                }
+                case "cover": {
+                    match = matchesTerm(book.getCover().toString(), searchTerm);
+                    break;
+                }
+                case "read": {
+                    match = matchesBoolean(book.isRead(), searchTerm);
+                    break;
+                }
+            }
+            return match;
+        });
     }
 
-    record SampleItem(String value, String label, Boolean disabled) {
+    private boolean matchesBoolean(boolean read, String searchTerm) {
+        return read && (searchTerm.toLowerCase().contains("true") || searchTerm.toLowerCase().contains("yes"));
     }
 
-    private void setSelectSampleData(Select select) {
+    private boolean matchesTerm(String value, String searchTerm) {
+        return value.toLowerCase().contains(searchTerm.toLowerCase());
+    }
+
+    private boolean genreMatches(List<Genre> values, String searchTerm) {
+        for(Genre g : values){
+            if(g.toString().toLowerCase().contains(searchTerm.toLowerCase())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    record SampleItem(String value, String label) {
+    }
+
+    private void setSearchSelectData(Select select) {
         List<SampleItem> sampleItems = new ArrayList<>();
-        sampleItems.add(new SampleItem("first", "First", null));
-        sampleItems.add(new SampleItem("second", "Second", null));
-        sampleItems.add(new SampleItem("third", "Third", Boolean.TRUE));
-        sampleItems.add(new SampleItem("fourth", "Fourth", null));
+        sampleItems.add(new SampleItem("title", "Title"));
+        sampleItems.add(new SampleItem("author", "Author"));
+        sampleItems.add(new SampleItem("language", "Language"));
+        sampleItems.add(new SampleItem("genre", "Genre"));
+        sampleItems.add(new SampleItem("cover", "Cover Type"));
+        sampleItems.add(new SampleItem("read", "Is Read?"));
         select.setItems(sampleItems);
         select.setItemLabelGenerator(item -> ((SampleItem) item).label());
-        select.setItemEnabledProvider(item -> !Boolean.TRUE.equals(((SampleItem) item).disabled()));
     }
-
-   /*
-    private void setGridSampleData(Grid grid) {
-        grid.setItems(query -> samplePersonService.list(
-                PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)))
-                .stream());
-    }
-    */
 }

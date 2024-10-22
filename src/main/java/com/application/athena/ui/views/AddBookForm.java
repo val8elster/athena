@@ -293,8 +293,8 @@ public class AddBookForm extends Composite<VerticalLayout> {
         submitButton.addClickListener(e -> {
             Book b = logic.getTempLogic().currentBook;
 
-            b.setTitle(titleField.getValue());
-            b.setAuthor(authorField.getValue());
+            b.title = titleField.getValue();
+            b.author = authorField.getValue();
             b.setPublisher(publisherField.getValue());
             b.setPublishedYear(publishedDate.getValue().getYear());
             b.setDescription(descriptionArea.getValue());
@@ -311,7 +311,7 @@ public class AddBookForm extends Composite<VerticalLayout> {
             b.setBuyDate(buyDate.getValue());
             b.setRead(isRead.getValue());
             if(isRead.getValue()){
-                b.setRating(((SampleItem) rating.getValue()).value);
+                b.rating = ((SampleItem) rating.getValue()).value;
             }
             logic.getTempLogic().bookList.add(b);
         });

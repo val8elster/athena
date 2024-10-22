@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -12,8 +13,8 @@ import java.util.List;
 public class Book {
     public Long isbn;
 
-    private String title;
-    private String author;
+    public String title;
+    public String author;
     private String publisher;
     private int publishedYear;
     private String description;
@@ -28,9 +29,14 @@ public class Book {
     private float price;
     private LocalDate buyDate;
     private boolean read;
-    private int rating;
+    public int rating;
 
     public Book(Long isbn) {
         this.isbn = isbn;
+        this.genres = new ArrayList<>();
+    }
+
+    public void addGenre(Genre genre) {
+        genres.add(genre);
     }
 }
