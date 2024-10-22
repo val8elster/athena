@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="added lombok getters and setters to series">
+    <list default="true" id="bc86216f-8e78-49ff-a6f4-155b6cdcbf39" name="Changes" comment="books are now shown and can be sorted by title, author and rating and searched by more categories. also removed the actual search button. and added a addGenre method to book.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/services/TempLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/AddBookForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/BooksView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/BooksView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/SeriesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/ui/views/SeriesView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/athena/valueobjects/Series.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="3-add-series" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,7 +72,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.Application.executor": "Run",
     "Spring Boot.athena.executor": "Run",
-    "git-widget-placeholder": "7-show-books",
+    "git-widget-placeholder": "8-show-series",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/valvo/Documents/athena",
@@ -134,7 +133,7 @@
       <workItem from="1727360969715" duration="796000" />
       <workItem from="1727971667999" duration="1318000" />
       <workItem from="1728472680054" duration="960000" />
-      <workItem from="1728904237902" duration="15695000" />
+      <workItem from="1728904237902" duration="17134000" />
     </task>
     <task id="LOCAL-00001" summary="transition from add isbn to add form, also defined singleton currently holding bookservice for isbn transition.">
       <option name="closed" value="true" />
@@ -264,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728912519314</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="books are now shown and can be sorted by title, author and rating and searched by more categories. also removed the actual search button. and added a addGenre method to book.">
+      <option name="closed" value="true" />
+      <created>1729605351665</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1729605351665</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +294,8 @@
     <MESSAGE value="books are now added to booklist in templogic" />
     <MESSAGE value="series can be added now" />
     <MESSAGE value="added lombok getters and setters to series" />
-    <option name="LAST_COMMIT_MESSAGE" value="added lombok getters and setters to series" />
+    <MESSAGE value="books are now shown and can be sorted by title, author and rating and searched by more categories. also removed the actual search button. and added a addGenre method to book." />
+    <option name="LAST_COMMIT_MESSAGE" value="books are now shown and can be sorted by title, author and rating and searched by more categories. also removed the actual search button. and added a addGenre method to book." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

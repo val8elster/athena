@@ -37,7 +37,6 @@ public class BooksView extends Composite<VerticalLayout> {
         H1 h1 = new H1();
         HorizontalLayout layoutRow2 = new HorizontalLayout();
         VerticalLayout layoutColumn2 = new VerticalLayout();
-        Hr hr = new Hr();
 
         Select searchSelect = new Select();
         TextField searchField = new TextField();
@@ -77,7 +76,6 @@ public class BooksView extends Composite<VerticalLayout> {
 
         layoutColumn2.setWidth("min-content");
         layoutColumn2.getStyle().set("flex-grow", "1");
-        layoutColumn2.add(hr);
         layoutColumn2.add(searchSelect);
         layoutColumn2.add(searchField);
 
