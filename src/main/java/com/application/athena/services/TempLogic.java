@@ -27,5 +27,8 @@ public class TempLogic {
         bookList.get(0).addGenre(Genre.FANTASY);
         bookList.get(0).addGenre(Genre.ROMANCE);
         bookList.get(0).setRead(true);
+
+        seriesList.add(new Series("Series 1", "Jane Doe"));
+        seriesList.add(new Series("Series 2", "Janey Doe"));
     }
 }
